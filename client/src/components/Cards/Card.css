@@ -20,6 +20,10 @@ figcaption {
   margin: 3rem;
   opacity: 1;
   cursor: pointer;
+  perspective: 1000px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
 }
 .card h3 {
   font-size: 2rem;
@@ -43,21 +47,6 @@ figcaption {
   box-shadow: inset 2px 2px 20px 4px #000000;
   border-radius: inherit;
 }
-
-/* .carte.open {
-  border: solid 2px #f30404;
-  background: #0f6299;
-  cursor: default;
-}
-.carte.match {
-  cursor: default;
-  background: #d0a715;
-}
-.carte.unmatched {
-  background: #d015b4;
-  cursor: default;
-} */
-
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .gridcard {
     grid-template-columns: repeat(2, 1fr);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { KeyboardEvent } from "react";
 import Modal from "react-accessible-modals";
-import "../Description/description.css";
+import "../Pages/Description/description.css";
 import "../FrontCard/FrontCard.css";
 
 interface ImageCard {
@@ -71,7 +71,6 @@ export default function FlipCard() {
       setVisibleImages((batch) => [...batch, ...nextBatch]);
     }
   };
-
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);

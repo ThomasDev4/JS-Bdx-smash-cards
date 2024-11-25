@@ -1,0 +1,31 @@
+.gameCards {
+  width: 10rem;
+  height: 13rem;
+  background-color: #cbaeae;
+  box-shadow: inset 2px 2px 20px 4px #000000;
+  border-radius: inherit;
+  margin: 1rem;
+}
+
+.gameCards img {
+  width: 10rem;
+  height: 13rem;
+  object-fit: contain;
+}
+
+.gridcardGame {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.gameCards {
+  position: relative;
+}
+
+.background-card-flipped {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: black;
+}

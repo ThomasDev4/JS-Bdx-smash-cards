@@ -5,12 +5,13 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 /* ************************************************************************* */
 
-import About from "./About/About";
 // Import the main app component
 import App from "./App";
-import Description from "./components/Description/description";
-import GamePage from "./components/Game-Page/Game-Page";
-import { HomePage } from "./components/homepage/homepage";
+import About from "./components/Pages/About/About";
+import Description from "./components/Pages/Description/description.tsx";
+import GamePage from "./components/Pages/Game-Page/Game-Page";
+import { gameCardsLoader } from "./components/Pages/Loader/Loader.ts";
+import { HomePage } from "./components/Pages/homepage/homepage.tsx";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       {
         path: "/GamePage",
         element: <GamePage />,
+        loader: gameCardsLoader,
       },
       {
         path: "/About",
