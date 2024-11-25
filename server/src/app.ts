@@ -79,8 +79,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 // Serve server resources
-const corse = require("cors");
-app.use(cors());
+// const corse = require("cors");
+// app.use(cors());
 const publicFolderPath = path.join(__dirname, "../../server/public");
 
 if (fs.existsSync(publicFolderPath)) {
