@@ -1,5 +1,5 @@
 export const gameCardsLoader = () => {
-  return fetch(`${import.meta.env.VITE_API_URL}/api/smashArray`).then(
+  return fetch(`${import.meta.env.VITE_API_URL}api/smashArray`).then(
     (response) => {
       if (!response.ok) {
         throw new Error(`Erreur HTTP : ${response.status}`);

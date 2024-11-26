@@ -20,7 +20,7 @@ export default function FlipCard() {
   const batchSize = 12;
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/smashArray`)
+    fetch(`${import.meta.env.VITE_API_URL}api/smashArray`)
       .then((response) => response.json())
       .then((data) => {
         setImageCard(data);
