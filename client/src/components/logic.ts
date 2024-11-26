@@ -1,8 +1,5 @@
-import type { Card } from "./Pages/Game-Page/Game";
+import type { Card } from "./Pages/Game-Page/GameLogic";
 
-// Seule la fonction getRandomCards est exportée, car elle est utilisée dans Game.tsx
-// Les autres fonctions sont privées (pas exportées) car elles ne sont pas utilisées dans d'autres fichiers
-// Elles ne servent qu'à créer la fonction getRandomCards
 export function getRandomCards(array: Card[], totalCards: number): Card[] {
   const pairCount = totalCards / 2;
   const randomIndexes = getRandomIndex(array, pairCount);
