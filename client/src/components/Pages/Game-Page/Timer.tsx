@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { useCountdown } from "usehooks-ts";
 
 export default function Timer() {

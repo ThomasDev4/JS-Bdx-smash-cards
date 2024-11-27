@@ -21,6 +21,11 @@
   grid-template-columns: repeat(6, 1fr);
 }
 
+.game-complete-overlay {
+  text-align: center;
+  grid-column: span 6;
+}
+
 .gameCards {
   position: relative;
 }
