@@ -4,7 +4,10 @@ export function Main() {
   return (
     <main>
       <section className="rules">
-        <h2> Regles </h2>
+      
+        <img src="/portrait-smash.png" alt="perso smash" />
+        <article>
+          <h2> Regles </h2>
         <p> Bienvenue dans Smash Card ! 🎉 </p>
         <p>
           Le but du jeu est simple : trouve toutes les paires de cartes le plus
@@ -24,18 +27,18 @@ export function Main() {
         </ul>
         <p>Fais de ton mieux pour terminer la partie en un minimum de temps.</p>
         <p>
-          À toi de jouer et de montrer ta mémoire et ta rapidité ! Bonne chance
+          À toi de jouer, de montrer ta mémoire et ta rapidité ! Bonne chance
           ! 🃏⏱️
         </p>
+        </article>
       </section>
 
-      <section className="button">
-        <h2> Let's play </h2>
-        <button type="button"> Choisissez une difficulté !</button>
+    <section className="button">
+        <h2> Let's play !</h2>
         <Link className="falsebutton" to="/GamePage">
           Start the game !
         </Link>
-      </section>
+        </section>
     </main>
   );
 }

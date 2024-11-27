@@ -13,12 +13,12 @@ interface FrontCardProps {
 }
 
 export default function FrontCard({ initialCards }: FrontCardProps) {
-  const [flippedCards, setFlippedCards] = useState<number[]>([]); // Stocke les IDs ou index des cartes retournées
+  const [flippedCards, setFlippedCards] = useState<number[]>([]); 
 
   const handleFlip = (cardId: number) => {
     setFlippedCards((prevFlipped) => {
       return prevFlipped.includes(cardId)
-        ? prevFlipped.filter((id) => id !== cardId) // Si déjà retournée, on l'enlève
+        ? prevFlipped.filter((id) => id !== cardId)
         : [...prevFlipped, cardId];
     });
   };
