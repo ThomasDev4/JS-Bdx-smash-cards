@@ -1,5 +1,9 @@
-import FlipCard from "../../Cards/Cardflip";
+import FlipCard from "../../Cards/DescriptionPage";
 
 export default function Description() {
-  return <FlipCard />;
+  return (
+    <>
+      <FlipCard />
+    </>
+  );
 }
