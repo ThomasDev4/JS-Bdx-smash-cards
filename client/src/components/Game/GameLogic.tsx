@@ -1,6 +1,6 @@
 import { useState } from "react";
-import GameCard from "./GameCard";
 import type { Card } from "../Pages/Game-Page/GameLogic";
+import GameCard from "./GameCard";
 
 interface GameProps {
   cards: Card[];
@@ -11,7 +11,6 @@ export default function Game({ cards }: GameProps) {
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
 
   function handleCardClick(index: number) {
-
     if (flippedCards.includes(index) || matchedCards.includes(index)) return;
 
     const newFlippedCards = [...flippedCards, index];
@@ -20,7 +19,6 @@ export default function Game({ cards }: GameProps) {
     if (newFlippedCards.length === 2) {
       const [firstIndex, secondIndex] = newFlippedCards;
       if (cards[firstIndex].order === cards[secondIndex].order) {
-
         setMatchedCards([...matchedCards, firstIndex, secondIndex]);
       }
 
@@ -35,7 +33,9 @@ export default function Game({ cards }: GameProps) {
           key={card.order}
           index={index}
           char={card}
-          isFlipped={flippedCards.includes(index) || matchedCards.includes(index)}
+          isFlipped={
+            flippedCards.includes(index) || matchedCards.includes(index)
+          }
           onCardClick={handleCardClick}
         />
       ))}

@@ -1,10 +1,10 @@
 .rules {
   padding: 3rem;
   display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
 }
-.rules>article {
+.rules > article {
   border: solid #0e0e0e;
   box-shadow: 6px 5px 10px 0px #0e0d0dec;
   background-color: var(--colortext);
@@ -55,6 +55,4 @@ section:last-child {
   cursor: pointer;
   transition: 0.7s ease;
   letter-spacing: 0;
-  
-  
 }

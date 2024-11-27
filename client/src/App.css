@@ -10,13 +10,11 @@
 
 html {
   scroll-behavior: smooth;
-
 }
 
 @supports (scrollbar-width: auto) {
   html {
     scrollbar-color: #e60013 #e60013;
-
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -74,23 +72,21 @@ h2 {
 article > p:first-of-type {
   text-align: center;
   padding-bottom: 1rem;
-  font-size: 2.125rem
+  font-size: 2.125rem;
 }
-article>p:last-child {
+article > p:last-child {
   text-align: center;
   width: 40ch;
   padding-top: 3rem;
   margin: auto;
-
 }
 article > p {
   font-family: var(--font-primary-text);
   text-align: left;
   line-height: 3rem;
   font-size: 1.5rem;
-
 }
-footer>p {
+footer > p {
   font-size: 1rem;
 }
 .listrules {
