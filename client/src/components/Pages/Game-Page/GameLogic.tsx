@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getRandomCards } from "../../logic";
 import GameCard from "./GameCard";
 import "./Game.css";
+import { useCountdown } from "usehooks-ts";
 
 export type Card = {
   image: string;
@@ -10,6 +11,10 @@ export type Card = {
 };
 
 export default function MemoryGame({ cards }: { cards: Card[] }) {
+  const [count, { startCountdown, resetCountdown }] = useCountdown({
+    countStart: 60,
+    intervalMs: 1000,
+  });
   const DIFFICULTY = 18;
   const [randomCards, setRandomCards] = useState<Card[]>([]);
   const [flippedCards, setFlippedCards] = useState<
@@ -31,6 +36,9 @@ export default function MemoryGame({ cards }: { cards: Card[] }) {
     if (isCardAlreadyFlipped) return;
 
     if (flippedCards.length >= 2) return;
+    if (count === 60) {
+      startCountdown();
+    }
 
     const newFlippedCard = { index, card: randomCards[index] };
     const newFlippedCards = [...flippedCards, newFlippedCard];
@@ -54,9 +62,23 @@ export default function MemoryGame({ cards }: { cards: Card[] }) {
   };
 
   const isGameComplete = matchedCards.length === randomCards.length;
+  useEffect(() => {
+    if (count <= 0) {
+      alert("Temps écoulé ! Essayez à nouveau !");
+
+      setFlippedCards([]);
+      setMatchedCards([]);
+
+      const initialCards = getRandomCards(cards, DIFFICULTY);
+      setRandomCards(initialCards);
+
+      resetCountdown();
+    }
+  }, [count, cards, resetCountdown]);
 
   return (
     <main className="gridcardGame">
+      <p className="timer">Timer :{count}</p>
       {randomCards.length > 0 ? (
         randomCards.map((char, index) => (
           <GameCard
@@ -73,8 +95,8 @@ export default function MemoryGame({ cards }: { cards: Card[] }) {
       )}
 
       {isGameComplete && (
-        <div className="game-complete-overlay">
-          <p>Félicitations ! Vous avez gagné !</p>
+        <div className="game-complete">
+          <p>Congratulation !</p>
         </div>
       )}
     </main>

@@ -13,7 +13,7 @@ interface FrontCardProps {
 }
 
 export default function FrontCard({ initialCards }: FrontCardProps) {
-  const [flippedCards, setFlippedCards] = useState<number[]>([]); 
+  const [flippedCards, setFlippedCards] = useState<number[]>([]);
 
   const handleFlip = (cardId: number) => {
     setFlippedCards((prevFlipped) => {

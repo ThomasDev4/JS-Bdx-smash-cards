@@ -1,4 +1,3 @@
-
 import type { Card } from "../Pages/Game-Page/GameLogic";
 
 interface GameCardProps {
@@ -8,7 +7,12 @@ interface GameCardProps {
   onCardClick: (index: number) => void;
 }
 
-export default function GameCard({ index, char, isFlipped, onCardClick }: GameCardProps) {
+export default function GameCard({
+  index,
+  char,
+  isFlipped,
+  onCardClick,
+}: GameCardProps) {
   return (
     <figure className="gameCards" key={`${char.order}-${index}`}>
       <img
