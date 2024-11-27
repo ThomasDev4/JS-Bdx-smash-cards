@@ -49,7 +49,7 @@ export default function MemoryGame({ cards }: { cards: Card[] }) {
         }
 
         setFlippedCards([]);
-      }, 1500);
+      }, 1000);
     }
   };
 

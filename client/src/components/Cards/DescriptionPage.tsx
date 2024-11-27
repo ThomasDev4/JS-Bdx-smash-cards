@@ -17,10 +17,11 @@ export default function FlipCard() {
   const [visibleImages, setVisibleImages] = useState<ImageCard[]>([]);
   const [selectedCard, setSelectCard] = useState<ImageCard | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [query, setQuery] = useState<string>("");
   const batchSize = 12;
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/smashArray`)
+    fetch(`${import.meta.env.VITE_API_URL}api/smashArray`)
       .then((response) => response.json())
       .then((data) => {
         setImageCard(data);
@@ -55,15 +56,6 @@ export default function FlipCard() {
     }
   };
 
-  const handleScroll = () => {
-    if (
-      document.documentElement.scrollTop >=
-      document.documentElement.offsetHeight - 12
-    ) {
-      loadMoreImages();
-    }
-  };
-
   const loadMoreImages = () => {
     const currentCount = visibleImages.length;
     const nextBatch = imageCard.slice(currentCount, currentCount + batchSize);
@@ -71,27 +63,47 @@ export default function FlipCard() {
       setVisibleImages((batch) => [...batch, ...nextBatch]);
     }
   };
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [visibleImages, imageCard]);
+
+  const filteredCards =
+    query.length >= 3
+      ? imageCard.filter((card) =>
+          card.name.toLowerCase().includes(query.toLowerCase()),
+        )
+      : visibleImages;
 
   return (
-    <div className="gridcard">
-      {visibleImages.map((card) => (
-        <article
-          key={card.order}
-          className="card"
-          onClick={() => openModal(card)}
-          onKeyUp={(event) => handleKeyPress(event, card)}
+    <section className="search-bar-section">
+      <input
+        type="text"
+        placeholder="Rechercher un personnage..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        className="search-bar"
+      />
+      <section className="gridcard">
+        {filteredCards.map((card) => (
+          <article
+            key={card.order}
+            className="card"
+            onClick={() => openModal(card)}
+            onKeyUp={(event) => handleKeyPress(event, card)}
+          >
+            <img src={`${import.meta.env.VITE_API_URL}${card.image}`} alt="" />
+            <figcaption>{card.name}</figcaption>
+          </article>
+        ))}
+      </section>
+
+      {query.length < 3 && visibleImages.length < imageCard.length && (
+        <button
+          type="button"
+          className="load-more-button"
+          onClick={loadMoreImages}
         >
-          <img src={`${import.meta.env.VITE_API_URL}${card.image}`} alt="" />
-          <figcaption>{card.name}</figcaption>
-        </article>
-      ))}
+          Charger plus
+        </button>
+      )}
+
       {isModalOpen && selectedCard && (
         <section className="container-modal">
           <Modal
@@ -109,15 +121,6 @@ export default function FlipCard() {
           </Modal>
         </section>
       )}
-      {visibleImages.length < imageCard.length && (
-        <button
-          type="button"
-          className="load-more-button"
-          onClick={loadMoreImages}
-        >
-          Charger plus
-        </button>
-      )}
-    </div>
+    </section>
   );
 }

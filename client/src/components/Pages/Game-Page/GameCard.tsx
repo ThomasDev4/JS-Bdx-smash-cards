@@ -17,21 +17,22 @@ export default function GameCard({
 }: GameCardProps) {
   return (
     <figure
-      className={`gameCards ${isMatched ? "matched" : ""}`}
+      className={`gameCards ${isMatched ? "matched" : ""} ${
+        isFlipped ? "flipped" : ""
+      }`}
       key={`${char.order}-${index}`}
     >
       {isFlipped || isMatched ? (
         <img
           src={`${import.meta.env.VITE_API_URL}${char.image}`}
           alt={char.name}
-          className={isMatched ? "opacity-50" : ""}
         />
       ) : (
         <img
           onClick={onClick}
           onKeyUp={onClick}
           className="background-card-flipped"
-          src="/public/smash_card_1.jpg"
+          src="public\smash-color.png"
           alt="Dos de l'image omg"
         />
       )}

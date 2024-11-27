@@ -46,6 +46,18 @@ figcaption {
   height: 18rem;
 }
 
+.search-bar {
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-left: 35rem;
+  padding: 8px;
+  width: 40rem;
+  border: 1px solid black;
+  border-radius: 4px;
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .gridcard {
     grid-template-columns: repeat(2, 1fr);
