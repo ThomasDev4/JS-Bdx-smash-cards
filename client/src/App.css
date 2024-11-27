@@ -64,24 +64,38 @@ h1 {
 h2 {
   text-align: center;
   font-family: var(--font-title);
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   letter-spacing: var(--letter-spacing);
+  padding-top: 1.5rem;
+  padding-bottom: 5rem;
 }
-
-p {
-  font-family: var(--font-primary-text);
+article > p:first-of-type {
   text-align: center;
-  line-height: 3rem;
-  font-size: 1.3rem;
+  padding-bottom: 1rem;
+  font-size: 2.125rem;
 }
-
+article > p:last-child {
+  text-align: center;
+  width: 40ch;
+  padding-top: 3rem;
+  margin: auto;
+}
+article > p {
+  font-family: var(--font-primary-text);
+  text-align: left;
+  line-height: 3rem;
+  font-size: 1.5rem;
+}
+footer > p {
+  font-size: 1rem;
+}
 .listrules {
   font-family: var(--font-primary-text);
 }
 
 li {
-  line-height: 3rem;
-  font-size: 1.1rem;
+  line-height: 4rem;
+  font-size: 1.5rem;
 }
 
 button {
@@ -103,22 +117,17 @@ button:hover {
   border-color: var(--primary-color);
   font-family: var(--font-primary-text);
 }
-
 .falsebutton:hover {
   background-color: var(--primary-color);
   color: var(--colortext);
   border-color: var(--second-color);
 }
-
 footer {
   background-color: var(--primary-color);
   color: var(--colortext);
   padding: 3rem;
-  display: grid;
-  justify-content: center;
   text-align: center;
 }
-
 .haut {
   font-size: 1rem;
   color: #ffebec;
@@ -126,14 +135,12 @@ footer {
 .burger .line {
   background: var(--colortext);
 }
-
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .link {
     display: flex;
     flex-direction: column;
   }
 }
-
 @media screen and (max-width: 700px) {
   h1 {
     font-size: 2rem;

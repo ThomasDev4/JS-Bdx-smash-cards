@@ -1,0 +1,58 @@
+.rules {
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.rules > article {
+  border: solid #0e0e0e;
+  box-shadow: 6px 5px 10px 0px #0e0d0dec;
+  background-color: var(--colortext);
+  padding: 0.725rem;
+  border-radius: 20px;
+  width: auto;
+}
+.rules > img {
+  width: auto;
+  height: auto;
+  border-radius: 20px;
+  border: solid #0e0e0e;
+  box-shadow: 6px 5px 10px 0px #0e0d0dec;
+}
+.listrules {
+  display: block;
+  justify-content: left;
+  text-align: left;
+  width: auto;
+  height: auto;
+  margin: 1rem;
+  list-style-image: url("/SmashBall-2.svg");
+  padding: 4rem;
+}
+button {
+  width: 15.6rem;
+  height: 6.25rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: 0.7s ease;
+  margin: 1rem;
+}
+section:last-child {
+  align-content: center;
+}
+.button {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.falsebutton {
+  border: 0.15rem solid;
+  padding: 2.39rem 4.4rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.7s ease;
+  letter-spacing: 0;
+}
