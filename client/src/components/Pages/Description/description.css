@@ -12,7 +12,16 @@
     transition: none;
   }
 }
-
+button.load-more-button {
+  width: 15rem;
+  height: 6rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: 0.6s;
+  font-size: 1.25rem;
+}
 .gridcard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
