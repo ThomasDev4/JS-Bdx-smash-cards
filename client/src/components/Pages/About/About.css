@@ -5,132 +5,149 @@
   --font-primary-text: "Barlow", Courier, monospace;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  line-height: 1.25rem;
-}
-
 main {
-  margin: var(--size-spacing);
+  margin: auto;
+  width: 95%;
   font-family: var(--font-primary-text);
 }
-img {
-  height: 3.75rem;
-  width: 3.75rem;
+
+.linkedin {
+  font-size: 1.5rem;
+  color: var(--black-color);
+  text-align: center;
 }
 
-.team-member {
-  display: flex;
-  align-items: center;
-  margin: var(--size-spacing) 0;
-  justify-content: center;
-  padding: 2rem;
+.text-container h3 {
+  margin-top: 0.5rem;
+  text-align: center;
 }
 
 .team-member.left {
-  flex-direction: row;
-}
-
-.team-member.right {
-  flex-direction: row-reverse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 .team-member.left p {
-  text-align: right;
-  font-size: 1.5rem;
+  width: 60%;
+  margin: auto;
+  text-align: left;
 }
 
 .team-member.right p {
+  width: 60%;
+  margin: auto;
   text-align: left;
-  font-size: 1.5rem;
-}
-.team-member.left h2 {
-  text-align: right;
-  font-size: 2rem;
 }
 
-.team-member.right h2 {
-  text-align: left;
-  font-size: 2rem;
+.team-member.right {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  text-align: center;
 }
 
 .team-member img {
-  width: 25rem;
-  height: auto;
+  display: inline-block;
+  width: 16rem;
+  height: 10rem;
   border-radius: 0.625rem;
   box-shadow: 2px 2px 2px 2px #0e0e0e;
-  margin: 0 var(--size-spacing);
-}
-.team-member.left .linkedin {
-  text-align: right;
-  font-size: 1.5rem;
-  padding: 1rem;
-  color: var(--black-color);
+  margin-bottom: 1rem;
 }
 
-.team-member.right .linkedin {
-  text-align: left;
-  font-size: 1.5rem;
-  padding: 1rem;
-  color: var(--black-color);
-}
-.team-member .linkedin:hover {
-  color: #e60013;
-}
-.text-container {
+.burger {
   display: flex;
-  flex-direction: column;
-  max-width: 37.5rem;
 }
 
-.text-container h2 {
-  margin: 0;
-  font-size: var(--size-spacing);
-}
+@media (min-width: 768px) {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    line-height: 1.25rem;
+  }
 
-.text-container p {
-  margin: 0.3rem 0 0;
-}
-
-@media (max-width: 450px) {
   main {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0.625rem;
-    margin: 0.625rem;
+    font-family: var(--font-primary-text);
+  }
+  img {
+    height: 3.75rem;
+    width: 3.75rem;
   }
 
   .team-member {
-    flex-direction: column;
-    padding: var(--size-spacing);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .team-member.left {
+    flex-direction: row;
+  }
+
+  .team-member.right {
+    flex-direction: row-reverse;
+  }
+  .team-member.left p {
+    text-align: right;
+    font-size: 1.5rem;
+    margin-left: 15rem;
+  }
+
+  .team-member.right p {
+    text-align: left;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  .team-member.left h3 {
+    text-align: right;
+    font-size: 2rem;
+  }
+
+  .team-member.right h3 {
+    text-align: left;
+    font-size: 2rem;
   }
 
   .team-member img {
-    width: 50%;
+    width: 35rem;
     height: auto;
-    margin: 0.625rem;
+    border-radius: 0.625rem;
+    box-shadow: 2px 2px 2px 2px #0e0e0e;
+    margin: 0 var(--size-spacing);
+  }
+  .team-member.left .linkedin {
+    text-align: right;
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: var(--black-color);
   }
 
+  .team-member.right .linkedin {
+    text-align: left;
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: var(--black-color);
+  }
+  .team-member .linkedin:hover {
+    color: #e60013;
+  }
   .text-container {
-    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 37.5rem;
   }
 
-  .text-container h2 {
+  .text-container h3 {
+    margin: 0;
     font-size: var(--size-spacing);
   }
 
   .text-container p {
-    line-height: var(--size-spacing);
-    font-size: 1rem;
-  }
-  .team-member.left p {
-    flex-direction: row;
-    text-align: right;
+    margin: 0.3rem 0 0;
   }
 
-  .team-member.right p {
-    flex-direction: row-reverse;
-    text-align: left;
+  .burger {
+    display: none;
   }
 }
