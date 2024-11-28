@@ -1,6 +1,7 @@
 .rules {
   display: flex;
   flex-direction: column;
+  padding: 2rem;
 }
 .rules > article {
   border: solid #0e0e0e;
