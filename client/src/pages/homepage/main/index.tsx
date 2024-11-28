@@ -20,7 +20,9 @@ export function Main() {
           </p>
           <p>Voici les règles pour jouer :</p>
           <ul className="listrules">
-            <li>Retourne les cartes une par une pour découvrir leurs images.</li>
+            <li>
+              Retourne les cartes une par une pour découvrir leurs images.
+            </li>
             <li>
               Trouve les paires identiques en mémorisant les emplacements des
               cartes.
@@ -42,7 +44,6 @@ export function Main() {
           </p>
         </article>
       </section>
-
     </main>
   );
 }

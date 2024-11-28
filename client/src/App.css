@@ -75,15 +75,13 @@ article > p:first-of-type {
   font-size: 1.5rem;
 }
 article > p:last-child {
-padding-top: 2rem;
-
+  padding-top: 2rem;
 }
 article > p {
   font-family: var(--font-primary-text);
   text-align: left;
   line-height: 2rem;
   font-size: 1.125rem;
-
 }
 footer > p {
   font-size: 1rem;
