@@ -35,7 +35,7 @@ figcaption {
 .card {
   background-color: var(--colortext);
   color: var(--second-color);
-  border: solid 2px #0e0e0e;
+  border: solid 2px var(--second-color);
   box-shadow: 3px 6px 10px 1px #636262;
 }
 
@@ -50,12 +50,18 @@ figcaption {
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
-  margin-left: 35rem;
   padding: 8px;
   width: 40rem;
-  border: 1px solid black;
-  border-radius: 4px;
+  border: 1px solid var(--second-color);
+  border-radius: 1rem;
   text-align: center;
+  box-shadow: 5px 3px 10px 0px #636262;
+  background-color: var(--colortext);
+}
+.search-bar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -65,13 +71,8 @@ figcaption {
   }
 
   .card img {
-    width: 10rem;
-    height: 12rem;
-  }
-
-  .card {
-    width: 15rem;
-    height: 20rem;
+    width: auto;
+    height: 17rem;
   }
 }
 
@@ -84,12 +85,10 @@ figcaption {
   }
 
   .card img {
-    width: 10rem;
-    height: 12rem;
-  }
-
-  .card {
     width: 15rem;
-    height: 20rem;
+    height: auto;
+  }
+  .search-bar {
+    width: 25em;
   }
 }

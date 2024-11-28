@@ -44,15 +44,6 @@ export function NavBar() {
         <ul className={`link ${isMenuOpen ? "active" : ""}`}>
           <li>
             <NavLink
-              to="/scorepage"
-              onClick={() => setIsMenuOpen(false)}
-              className={({ isActive }) => (isActive ? "active-link" : "")}
-            >
-              Score
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
               to="/description"
               onClick={() => setIsMenuOpen(false)}
               className={({ isActive }) => (isActive ? "active-link" : "")}

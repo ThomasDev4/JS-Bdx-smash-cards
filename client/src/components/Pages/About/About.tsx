@@ -43,9 +43,9 @@ export default function About() {
               alt={`${member.name.first} ${member.name.last}`}
             />
             <section className="text-container">
-              <h2>
+              <h3>
                 {member.name.first} {member.name.last}
-              </h2>
+              </h3>
               <a className="linkedin" href={member.linkedin} target="blank">
                 🔎 Linkedin
               </a>
