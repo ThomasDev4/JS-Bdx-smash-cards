@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 export function Main() {
   return (
     <main>
+      <section className="button">
+        <h2> Let's play !</h2>
+        <Link className="falsebutton" to="/GamePage">
+          Start the game !
+        </Link>
+      </section>
       <section className="rules">
         <img src="/portrait-smash.png" alt="perso smash" />
         <article>
@@ -14,7 +20,9 @@ export function Main() {
           </p>
           <p>Voici les règles pour jouer :</p>
           <ul className="listrules">
-            <li>Retourne les cartes une par une pour découvrir leur image.</li>
+            <li>
+              Retourne les cartes une par une pour découvrir leurs images.
+            </li>
             <li>
               Trouve les paires identiques en mémorisant les emplacements des
               cartes.
@@ -35,13 +43,6 @@ export function Main() {
             ! 🃏⏱️
           </p>
         </article>
-      </section>
-
-      <section className="button">
-        <h2> Let's play !</h2>
-        <Link className="falsebutton" to="/GamePage">
-          Start the game !
-        </Link>
       </section>
     </main>
   );
