@@ -121,6 +121,7 @@
   cursor: pointer;
   text-align: center;
 }
+
 @media (min-width: 992px) {
   .gameCards {
     width: 10rem;
@@ -128,6 +129,7 @@
     box-shadow: inset 2px 2px 20px 4px #000000;
     margin: 1rem;
   }
+
   .gameCards img {
     width: 10rem;
     height: 13rem;
