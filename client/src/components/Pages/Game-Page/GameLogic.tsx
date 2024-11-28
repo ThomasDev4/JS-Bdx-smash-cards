@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getRandomCards } from "../../logic";
 import GameCard from "./GameCard";
 import "./Game.css";
@@ -22,10 +22,16 @@ export default function MemoryGame({ cards }: { cards: Card[] }) {
   >([]);
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
 
-  useEffect(() => {
+  const initializeGame = useCallback(() => {
     const initialCards = getRandomCards(cards, DIFFICULTY);
     setRandomCards(initialCards);
+    setFlippedCards([]);
+    setMatchedCards([]);
   }, [cards]);
+
+  useEffect(() => {
+    initializeGame();
+  }, [initializeGame]);
 
   const handleCardClick = (index: number) => {
     if (matchedCards.includes(index)) return;
@@ -81,22 +87,27 @@ export default function MemoryGame({ cards }: { cards: Card[] }) {
       <p className="timer">Timer :{count}</p>
       {randomCards.length > 0 ? (
         randomCards.map((char, index) => (
-          <GameCard
-            key={`${char.order}-${index}`}
-            index={index}
-            char={char}
-            isFlipped={flippedCards.some((card) => card.index === index)}
-            isMatched={matchedCards.includes(index)}
-            onClick={() => handleCardClick(index)}
-          />
+          <>
+            <GameCard
+              key={`${char.order}-${index}`}
+              index={index}
+              char={char}
+              isFlipped={flippedCards.some((card) => card.index === index)}
+              isMatched={matchedCards.includes(index)}
+              onClick={() => handleCardClick(index)}
+            />
+            {/* <button type="button" key={}>reset</button> */}
+          </>
         ))
       ) : (
         <p>No cards available</p>
       )}
-
       {isGameComplete && (
         <div className="game-complete">
-          <p>Congratulation !</p>
+          <p>Félicitations ! Vous avez gagné !</p>
+          <button type="button" onClick={initializeGame}>
+            Rejouer !
+          </button>
         </div>
       )}
     </main>
