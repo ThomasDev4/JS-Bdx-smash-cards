@@ -21,6 +21,9 @@ export default function MemoryGame({ cards }: { cards: Card[] }) {
     { index: number; card: Card }[]
   >([]);
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
+  const [isPortrait, setIsPortrait] = useState(
+    window.innerHeight > window.innerWidth,
+  );
 
   const initializeGame = useCallback(() => {
     const initialCards = getRandomCards(cards, DIFFICULTY);
@@ -32,6 +35,17 @@ export default function MemoryGame({ cards }: { cards: Card[] }) {
   useEffect(() => {
     initializeGame();
   }, [initializeGame]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsPortrait(window.innerHeight > window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleCardClick = (index: number) => {
     if (matchedCards.includes(index)) return;
@@ -69,6 +83,11 @@ export default function MemoryGame({ cards }: { cards: Card[] }) {
 
   const isGameComplete = matchedCards.length === randomCards.length;
   useEffect(() => {
+    if (isGameComplete) {
+      resetCountdown();
+    }
+  }, [isGameComplete, resetCountdown]);
+  useEffect(() => {
     if (count <= 0) {
       alert("Temps écoulé ! Essayez à nouveau !");
 
@@ -83,33 +102,45 @@ export default function MemoryGame({ cards }: { cards: Card[] }) {
   }, [count, cards, resetCountdown]);
 
   return (
-    <main className="gridcardGame">
-      <p className="timer">Timer :{count}</p>
-      {randomCards.length > 0 ? (
-        randomCards.map((char, index) => (
-          <>
-            <GameCard
-              key={`${char.order}-${index}`}
-              index={index}
-              char={char}
-              isFlipped={flippedCards.some((card) => card.index === index)}
-              isMatched={matchedCards.includes(index)}
-              onClick={() => handleCardClick(index)}
-            />
-            {/* <button type="button" key={}>reset</button> */}
-          </>
-        ))
-      ) : (
-        <p>No cards available</p>
-      )}
-      {isGameComplete && (
-        <div className="game-complete">
-          <p>Félicitations ! Vous avez gagné !</p>
-          <button type="button" onClick={initializeGame}>
-            Rejouer !
-          </button>
+    <>
+      {isPortrait && (
+        <div className="landscape-required">
+          <p>Veuillez activer le mode paysage pour jouer.</p>
         </div>
       )}
-    </main>
+      {!isPortrait && (
+        <main className="gridcardGame">
+          <p className="timer">Timer :{count}</p>
+          {randomCards.length > 0 ? (
+            randomCards.map((char, index) => (
+              <>
+                <GameCard
+                  key={`${char.order}-${index}`}
+                  index={index}
+                  char={char}
+                  isFlipped={flippedCards.some((card) => card.index === index)}
+                  isMatched={matchedCards.includes(index)}
+                  onClick={() => handleCardClick(index)}
+                />
+              </>
+            ))
+          ) : (
+            <p>No cards available</p>
+          )}
+          {isGameComplete && (
+            <div className="game-complete">
+              <p>Félicitations ! Vous avez gagné !</p>
+              <button
+                className="restart"
+                type="button"
+                onClick={initializeGame}
+              >
+                Rejouer !
+              </button>
+            </div>
+          )}
+        </main>
+      )}
+    </>
   );
 }
