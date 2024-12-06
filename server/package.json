@@ -4,7 +4,7 @@
     "check-types": "tsc --noEmit",
     "dev": "tsx watch --clear-screen=false ./src/main",
     "build": "tsc ./src/main --outDir ../dist --esModuleInterop",
-    "start": "node ../dist/src/main",
+    "start": "node ../dist/main",
     "test": "jest --verbose"
   },
   "dependencies": {
