@@ -1,0 +1,16 @@
+version: "3.4"
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/var/www
+      - ./docker-entry.sh:/etc/entrypoint.sh
+    entrypoint: [ "sh", "/etc/entrypoint.sh" ]
+    ports:
+      - "3310:3310"
+    environment:
+      APP_PORT: 3310
+      APP_SECRET: 123456789
+      VITE_API_URL: ""
+    
