@@ -60,10 +60,10 @@ app.use(
 /* ************************************************************************* */
 
 // Import the API router
-import router from "./router";
+//import router from "./router";
 
 // Mount the API router under the "/api" endpoint
-app.use(router);
+//app.use(router);
 
 /* ************************************************************************* */
 
@@ -75,15 +75,15 @@ app.use(router);
 // - Serving client static files from the server, which is useful when building a single-page application with React.
 // - Redirecting unhandled requests (e.g., all requests not matching a defined API route) to the client's index.html. This allows the client to handle client-side routing.
 
-import fs from "node:fs";
-import path from "node:path";
+//import fs from "node:fs";
+//import path from "node:path";
 
 // Serve server resources
-const corse = require("cors");
-app.use(cors());
-const publicFolderPath = path.join(__dirname, "../../server/public");
+//const corse = require("cors");
+//app.use(cors());
+//const publicFolderPath = path.join(__dirname, "../../server/public");
 
-if (fs.existsSync(publicFolderPath)) {
+/* if (fs.existsSync(publicFolderPath)) {
   app.use(express.static(publicFolderPath));
 }
 
@@ -106,20 +106,20 @@ if (fs.existsSync(clientBuildPath)) {
 // Middleware for Error Logging
 // Important: Error-handling middleware should be defined last, after other app.use() and routes calls.
 
-import type { ErrorRequestHandler } from "express";
+//import type { ErrorRequestHandler } from "express";
 
 // Define a middleware function to log errors
-const logErrors: ErrorRequestHandler = (err, req, res, next) => {
+//const logErrors: ErrorRequestHandler = (err, req, res, next) => {
   // Log the error to the console for debugging purposes
-  console.error(err);
-  console.error("on req:", req.method, req.path);
+  //console.error(err);
+ // console.error("on req:", req.method, req.path);
 
   // Pass the error to the next middleware in the stack
-  next(err);
-};
+  //next(err);
+//};
 
 // Mount the logErrors middleware globally
-app.use(logErrors);
+//app.use(logErrors); 
 
 /* ************************************************************************* */
 
